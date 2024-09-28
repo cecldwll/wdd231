@@ -1,5 +1,5 @@
 // import templates for park info and footer
-import { parkInfoTemplate, footerTemplate } from "./templates.mjs";
+import { parkInfoTemplate, footerTemplate } from "./template.mjs";
 
 // set header information like disclaimer, page title, and hero banner
 function setHeaderInfo(data) {
