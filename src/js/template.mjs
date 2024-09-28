@@ -28,5 +28,12 @@ export function parkInfoTemplate(info) {
   // create HTML template for the footer section
   export function footerTemplate(info) {
     const voice = getVoicePhone(info.contacts.phoneNumbers);
+
+    return `<section class="contact">
+    <h3>Contact Info</h3>
+    <h4>Phone:</h4>
+    <p>${voice}</p>
+  </section>
+    `;
   }
   

@@ -288,6 +288,11 @@ svg {
   height: 24px;
 }
 
+#park-header a {
+  color: var(--bs-white);
+  text-decoration: none;
+}
+
 /* Intro and info sections */
 
 .intro {
