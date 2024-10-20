@@ -389,6 +389,10 @@ main {
   padding: 50px;
 }
 
+main h1, h2 {
+  font-family: var(--bs-font-serif);
+}
+
 @media screen and (min-width: 630px) {
   .info {
     flex-direction: row;
