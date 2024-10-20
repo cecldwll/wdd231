@@ -1,3 +1,4 @@
+// parkService.mjs
 const park = {
   id: "F58C6D24-8D10-4573-9826-65D42B8B83AD",
   url: "https://www.nps.gov/yell/index.htm",
@@ -210,4 +211,14 @@ export function getInfoLinks(data) {
 export async function getParkData() {
   const parkData = await getJson("parks?parkCode=yell");
   return parkData.data[0];
+}
+
+export async function getParkAlerts(parkCode) {
+  const alertsData = await getJson(`alerts?parkCode=${parkCode}`);
+  return alertsData.data;
+}
+
+export async function getVisitorCenterData(parkCode) {
+  const visitorCenterData = await getJson(`visitorcenters?parkCode=${parkCode}`);
+  return visitorCenterData.data;
 }

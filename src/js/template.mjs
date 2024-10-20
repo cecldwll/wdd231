@@ -37,3 +37,44 @@ export function parkInfoTemplate(info) {
     `;
   }
   
+  // alerts
+  export function alertTemplate(alert) {
+    let alertType = "";
+    switch (alert.category) {
+      case "Park Closure":
+        alertType = "closure";
+        break;
+      default:
+        alertType = alert.category.toLowerCase();
+    }
+    
+    return `<li class="alert">
+              <svg class="icon" focusable="false" aria-hidden="true">
+                <use xlink:href="/images/sprite.symbol.svg#alert-${alertType}"></use>
+              </svg>
+              <div>
+                <h3 class="alert-${alertType}">${alert.title}</h3>\
+                <p>${alert.description}</p>
+              </div>
+            </li>`;
+  }
+
+  // visitor services
+  export function visitorCenterTemplate(center) {
+    const isOpen = new Date() >= new Date(center.operatingHours[0].standardHours.beginDate) && 
+                   new Date() <= new Date(center.operatingHours[0].standardHours.endDate);
+    
+    return `<li class="visitor-center">
+              <h3>${center.name}</h3>
+              <p>${center.description}</p>
+              <p>${center.directionsInfo}</p>
+              <p>Open from ${center.operatingHours[0].standardHours.beginDate} to ${center.operatingHours[0].standardHours.endDate}</p>
+              <p class="status ${isOpen ? 'open' : 'closed'}">${isOpen ? 'Currently Open' : 'Currently Closed'}</p>
+            </li>`;
+  }
+  
+  // activities
+  export function activityTemplate(activity) {
+    return `<li>${activity.name}</li>`;
+  }
+  
