@@ -1,5 +1,6 @@
 // import templates for park info and footer
 import { parkInfoTemplate, footerTemplate } from "./template.mjs";
+import enableNavigation from "./navigation.mjs";
 
 // set header information like disclaimer, page title, and hero banner
 function setHeaderInfo(data) {
@@ -22,4 +23,5 @@ function setFooter(data) {
 export default function setHeaderFooter(parkData) {
   setHeaderInfo(parkData); 
   setFooter(parkData); 
+  enableNavigation();
 }
