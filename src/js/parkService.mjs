@@ -1,4 +1,3 @@
-// parkService.mjs
 const park = {
   id: "F58C6D24-8D10-4573-9826-65D42B8B83AD",
   url: "https://www.nps.gov/yell/index.htm",
@@ -39,6 +38,30 @@ const park = {
       }
     ]
   },
+  addresses: [
+    {
+      postalCode: "82190",
+      city: "Yellowstone National Park",
+      stateCode: "WY",
+      countryCode: "US",
+      provinceTerritoryCode: "",
+      line1: "2 Officers Row",
+      type: "Physical",
+      line3: "",
+      line2: "Yellowstone National Park Headquarters"
+    },
+    {
+      postalCode: "82190-0168",
+      city: "Yellowstone National Park",
+      stateCode: "WY",
+      countryCode: "US",
+      provinceTerritoryCode: "",
+      line1: "PO Box 168",
+      type: "Mailing",
+      line3: "",
+      line2: ""
+    }
+  ],
   directionsInfo:
     "Yellowstone National Park covers nearly 3,500 square miles in the northwest corner of Wyoming (3% of the park is in Montana and 1% is in Idaho). Yellowstone has five entrance stations, and several are closed to regular vehicles during winter. It takes many hours to drive between these entrances, so be sure to check the status of roads at the entrance you intend to use while planning your trip and before you arrive.",
   directionsUrl: "http://www.nps.gov/yell/planyourvisit/directions.htm",
@@ -155,14 +178,13 @@ const park = {
   name: "Yellowstone",
   designation: "National Park"
 };
-
-export const parkInfoLinks = [
+const parkInfoLinks = [
   {
     name: "Current Conditions &#x203A;",
     link: "conditions.html",
     image: park.images[2].url,
     description:
-    "See what conditions to expect in the park before leaving on your trip!"
+      "See what conditions to expect in the park before leaving on your trip!"
   },
   {
     name: "Fees and Passes &#x203A;",
@@ -177,10 +199,6 @@ export const parkInfoLinks = [
     description: "Learn about the visitor centers in the park."
   }
 ];
-
-// export function getParkData() {
-//   return park;
-// }
 
 const baseUrl = "https://developer.nps.gov/api/v1/";
 const apiKey = import.meta.env.VITE_NPS_API_KEY;
@@ -201,6 +219,7 @@ async function getJson(url) {
 }
 
 export function getInfoLinks(data) {
+  // Why index + 2 below? no real reason. we don't want index 0 since that is the one we used for the banner...I decided to skip an image.
   const withUpdatedImages = parkInfoLinks.map((item, index) => {
     item.image = data[index + 2].url;
     return item;
@@ -209,16 +228,21 @@ export function getInfoLinks(data) {
 }
 
 export async function getParkData() {
-  const parkData = await getJson("parks?parkCode=yell");
+  const parkData = await getJson("parks?parkCode=yell ");
   return parkData.data[0];
 }
 
-export async function getParkAlerts(parkCode) {
-  const alertsData = await getJson(`alerts?parkCode=${parkCode}`);
-  return alertsData.data;
+export async function getParkAlerts(code) {
+  const parkData = await getJson(`alerts?parkCode=${code}`);
+  return parkData.data;
 }
 
-export async function getVisitorCenterData(parkCode) {
-  const visitorCenterData = await getJson(`visitorcenters?parkCode=${parkCode}`);
-  return visitorCenterData.data;
+export async function getParkVisitorCenters(code) {
+  const parkData = await getJson(`visitorcenters?parkCode=${code}`);
+  return parkData.data;
+}
+
+export async function getParkVisitorCenterDetails(id) {
+  const parkData = await getJson(`visitorcenters?id=${id}`);
+  return parkData.data[0];
 }

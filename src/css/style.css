@@ -14,7 +14,7 @@
   --bs-chathams-blue-3: #87a7be;
   --bs-chathams-blue-4: #e1ebf4;
   --bs-crete: #4b5e26;
-  --bs-light-green: #b9cf84;
+  --bs-light-green: #eaf0dc;
   --bs-dark-burgundy: #821206;
   --bs-emperor: #4f4f4f;
   --bs-madison: #093058;
@@ -91,7 +91,7 @@
   --icon-color: black;
 }
 
-/* global styles */
+/* Global styles */
 
 * {
   box-sizing: border-box;
@@ -115,7 +115,7 @@ a:hover {
   color: var(--bs-link-hover-color);
 }
 
-/* skip links styling */
+/* Skip links styling */
 .skip-links ul {
   list-style-type: none;
   margin: 0;
@@ -136,7 +136,7 @@ a:hover {
   z-index: 9999;
 }
 
-/* title and logo styling */
+/* Title and logo styling */
 
 .site-title {
   display: flex;
@@ -157,7 +157,7 @@ a:hover {
   border-right: 13px solid transparent;
 }
 
-/* global navbar styling */
+/* Global navbar styling */
 
 .global-header {
   background-color: var(--bs-black);
@@ -165,6 +165,7 @@ a:hover {
   display: grid;
   grid-template-columns: auto 200px;
   justify-content: space-between;
+  /* padding: 0.3em 1rem; */
   fill: white;
 }
 
@@ -175,7 +176,6 @@ a:hover {
   color: white;
   text-decoration: none;
 }
-
 .global-header .icon {
   width: 20px;
   height: 20px;
@@ -186,12 +186,10 @@ a:hover {
   align-items: center;
   justify-content: flex-end;
 }
-
 .global-header__right .search-icon {
   padding: 0 1rem;
   margin-top: 6px;
 }
-
 .global-header__right button {
   background-color: transparent;
   border: none;
@@ -205,7 +203,7 @@ a:hover {
   border-left: 1px solid var(--bs-grey-5);
 }
 
-/* global nav styles */
+/* Global nav styles */
 
 .global-nav {
   width: 100%;
@@ -226,24 +224,17 @@ a:hover {
 .global-nav svg {
   --icon-color: white;
 }
-
-.global-nav h2 {
-  margin-left: 10px;
-}
-
 .global-nav__section-heading {
   margin-top: 0;
   margin-bottom: 0;
   padding: 1rem 0.625rem;
   font-size: 1.25rem;
 }
-
 .section-heading--green {
   color: var(--bs-light-green);
 }
-
 .section-heading--blue {
-  color: #5b9dcd;
+  color: var(--bs-chathams-blue-3);
 }
 
 .global-nav__list {
@@ -252,19 +243,16 @@ a:hover {
   margin: 0;
   border-top: 1px solid #444;
 }
-
 .global-nav__split-button {
   display: flex;
   background-color: var(--bs-gray-800);
 }
-
 .global-nav__split-button > a {
   flex: 1;
   align-self: center;
   padding: 1rem 0.625rem;
   display: block;
 }
-
 .global-nav__split-button > button {
   display: flex;
   align-items: center;
@@ -272,27 +260,24 @@ a:hover {
   padding: 1rem 1.25rem;
   border-left: 1px solid #444;
 }
-
 .global-nav__split-button > button:hover,
 .global-nav__split-button > a:hover {
   background-color: var(--bs-gray-900);
 }
 
-/* Submenu styles */
 .global-nav__submenu {
   list-style: none;
   padding: 0;
   font-size: 0.8em;
   overflow: hidden;
   max-height: 0;
-  transition: all 0.5s;
+  transition: all 0.3s;
 }
 
 .global-nav__submenu a {
   display: block;
   padding: 1rem 0.625rem;
 }
-
 .global-nav__submenu a:hover {
   text-decoration: underline;
 }
@@ -312,13 +297,10 @@ a:hover {
   }
   .global-nav__split-button {
     background-color: inherit;
-    font-weight: 600;
   }
-
   .global-nav__split-button > button {
     display: none;
   }
-  
   .global-nav__submenu {
     display: flex;
     flex-direction: column;
@@ -329,7 +311,7 @@ a:hover {
   }
 }
 
-/* styles to control opening and closing of menu */
+/* styles to control opening and closing of menus */
 
 .global-nav__toggle--closed {
   display: flex;
@@ -340,10 +322,10 @@ a:hover {
   align-items: center;
 }
 
-.global-nav__toggle[aria-expanded="true"] > .global-nav__toggle--closed {
+.global-nav__toggle[aria-expanded="true"] .global-nav__toggle--closed {
   display: none;
 }
-.global-nav__toggle[aria-expanded="true"] > .global-nav__toggle--open {
+.global-nav__toggle[aria-expanded="true"] .global-nav__toggle--open {
   display: flex;
 }
 
@@ -351,16 +333,18 @@ a:hover {
   transition: all 0.3s;
 }
 
-.global-nav.show, .global-nav__submenu.show {
+.global-nav.show,
+.global-nav__submenu.show {
   max-height: 1000px;
 }
 
-/* hero banner */
+/* Park header */
+
+/* Hero banner */
 .hero-banner {
   display: grid;
   grid-template-columns: 1fr;
 }
-
 .hero-banner > img {
   width: 100%;
   height: 350px;
@@ -390,7 +374,7 @@ a:hover {
   font-size: 0.8rem;
 }
 
-/* park nav styling */
+/* Park nav styling */
 
 .park-nav > ul {
   list-style: none;
@@ -398,6 +382,7 @@ a:hover {
   margin: 0;
   display: flex;
   justify-content: center;
+  /* gap: 3rem; */
   background-color: var(--bs-black);
   font-size: 0.8rem;
 }
@@ -406,6 +391,7 @@ a:hover {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  /* height: 50px; */
   padding: 0.8em 2em;
 }
 .park-nav a:hover {
@@ -416,13 +402,14 @@ a:hover {
   height: 24px;
 }
 
-/* intro and info sections */
+/* Intro and info sections */
 
 .intro {
   padding: 1em;
 }
 
-.intro > h1, main > h1 {
+.intro > h1,
+main > h1 {
   font-family: var(--bs-font-serif);
   font-size: 2em;
   font-weight: normal;
@@ -447,7 +434,7 @@ a:hover {
   }
 }
 
-/* media card styles */
+/* Media card styles */
 
 .media-card a {
   text-decoration: none;
@@ -540,7 +527,96 @@ main {
   border-bottom: 1px solid var(--bs-grey-3);
 }
 
-/* utility styles */
+/* visitor center styles */
+
+.vc-name {
+  border-bottom: 1px solid var(--bs-gray-400);
+  padding-bottom: 1em;
+  margin-bottom: 1em;
+}
+.vc-name svg {
+  width: 1em;
+  height: 1em;
+}
+.vc-info figure {
+  margin: 1em 3em;
+}
+.vc-info figcaption {
+  font-size: 0.8em;
+}
+.vc-info figcaption > span {
+  display: block;
+  font-size: 0.8em;
+  font-style: italic;
+}
+
+.vc-details-list svg,
+.vc-gallery svg {
+  width: 1.25rem;
+  height: 1.25rem;
+  margin-right: 1rem;
+}
+.vc-details-list summary {
+  display: flex;
+  align-items: center;
+  text-transform: uppercase;
+  cursor: pointer;
+  position: relative;
+}
+
+#vcAmenities ul {
+  list-style: none;
+}
+#vcAmenities li {
+  margin-bottom: 1em;
+}
+
+.vc-gallery > h2 {
+  text-transform: uppercase;
+  font-size: 1.25rem;
+}
+.vc-gallery ul {
+  list-style: none;
+  display: flex;
+  gap: 1em;
+  flex-wrap: wrap;
+}
+
+/* This is an example of how to clip an image into a square shape */
+.vc-gallery img {
+  width: 265px; /* set the width to the desired size */
+  height: 265px; /* set the height to the same value as the width */
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Optional re-styling of the open/closed markers for the details elements */
+
+/* First we have to hide the default markers */
+.vc-details-list summary::marker,
+.vc-details-list summary::-webkit-details-marker {
+  display: none;
+}
+/* then we can use ::after to insert in a new image and position it to the right place */
+.vc-details-list summary::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  width: 1.25rem;
+  height: 1.25rem;
+  background-image: url("../images/arrow.svg");
+  background-size: 1.25rem 1.25rem;
+  background-position: 0 0;
+  background-repeat: no-repeat;
+}
+
+/* when you open a details element the browser automatically adds an "open" attribute to the detail.
+We can use this with some fancy selector work to change the background position of the arrow image to show the open state. */
+.vc-details-list details[open] > summary::after {
+  transform: rotate(180deg);
+}
+
+/* Utility styles */
 
 .visually-hidden {
   position: absolute;
